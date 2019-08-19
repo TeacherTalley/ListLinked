@@ -53,6 +53,7 @@ void ListLinked::insert(ElementType e, int position = 0)
 {
 	Node* newptr = new Node(e);
 	if (first == NULL) //insert the very first element
+	{
 		if (position == 0)
 		{
 			newptr->next = NULL;
@@ -60,7 +61,9 @@ void ListLinked::insert(ElementType e, int position = 0)
 		}
 		else
 			cout << "Location Error!!";
+	}
 	else
+	{
 		if (position == 0) //insert on the first position when some elements existed
 		{
 			newptr->next = first;
@@ -75,6 +78,7 @@ void ListLinked::insert(ElementType e, int position = 0)
 			newptr->next = preptr->next;
 			preptr->next = newptr;
 		}
+	}
 }
 
 /* Remove specified element from the list at a specific position */

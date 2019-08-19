@@ -9,14 +9,14 @@ using namespace std;
 /* Constructor  */
 ListLinked::ListLinked()
 {
-		top = NULL;
+		first = NULL;
 }
 
 /* destructor - clean up memory for remaining nodes in list */
 ListLinked::~ListLinked()
 {
 	Node* temp;
-	temp = top;
+	temp = first;
 	while (temp != NULL)
 	{
 		Node* save = temp;
@@ -29,7 +29,7 @@ ListLinked::~ListLinked()
 /* empty */
 bool ListLinked::empty()
 {
-	if (top == NULL)
+	if (first == NULL)
 		return true;
 	else
 		return false;
@@ -39,7 +39,7 @@ bool ListLinked::empty()
 void ListLinked::display()
 {
 	Node* temp;
-	temp = top;
+	temp = first;
 	while (temp != NULL)
 	{
 		cout << temp->data << ",";
@@ -52,24 +52,24 @@ void ListLinked::display()
 void ListLinked::insert(ElementType e, int position = 0)
 {
 	Node* newptr = new Node(e);
-	if (top == NULL) //insert the very first element
+	if (first == NULL) //insert the very first element
 		if (position == 0)
 		{
 			newptr->next = NULL;
-			top = newptr;
+			first = newptr;
 		}
 		else
 			cout << "Location Error!!";
 	else
 		if (position == 0) //insert on the first position when some elements existed
 		{
-			newptr->next = top;
-			top = newptr;
+			newptr->next = first;
+			first = newptr;
 		}
 		else //most cases belongs to this situation (as showed in the class slide)
 		{
 			Node* preptr;
-			preptr = top;
+			preptr = first;
 			for (int i = 0; i < position - 1; i++)
 				preptr = preptr->next;
 			newptr->next = preptr->next;
@@ -82,14 +82,14 @@ void ListLinked::erase(int position)
 {
 	if (position == 0) //delete the first element
 	{
-		Node* ptr = top;
-		top = ptr->next;
+		Node* ptr = first;
+		first = ptr->next;
 		delete(ptr);
 	}
 	else
 	{
 		Node* preptr;
-		preptr = top;
+		preptr = first;
 		for (int i = 0; i < position - 1; i++)
 			preptr = preptr->next;
 		Node* ptr = preptr->next;

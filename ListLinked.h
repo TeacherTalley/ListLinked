@@ -35,8 +35,8 @@ public:
 	void erase(int position);
 
 private:
-	Node* top; // pointer to the first node in the list
+	Node* first; // pointer to the first node in the list
 };
 
 #endif
-#pragma once
+

@@ -60,7 +60,9 @@ void ListLinked::insert(ElementType e, int position = 0)
 			first = newptr;
 		}
 		else
+		{
 			cout << "Location Error!!";
+		}
 	}
 	else
 	{

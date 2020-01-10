@@ -7,11 +7,8 @@
 using namespace std;
 
 
-Node::Node(int d, Node* n) 
+Node::Node(int d, Node* n)
 {
 	data = d;
 	next = n;
 }
-
-
-
